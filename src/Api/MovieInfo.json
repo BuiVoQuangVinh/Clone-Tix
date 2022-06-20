@@ -1,0 +1,73 @@
+{
+  "heThongRapChieu": [
+    {
+      "cumRapChieu": [
+        {
+          "lichChieuPhim": [
+            {
+              "maLichChieu": "45797",
+              "maRap": "451",
+              "tenRap": "Rạp 1",
+              "ngayChieuGioChieu": "2022-05-25T14:51:00",
+              "giaVe": 75000,
+              "thoiLuong": 120
+            }
+          ],
+          "maCumRap": "bhd-star-cineplex-3-2",
+          "tenCumRap": "BHD Star Cineplex - 3/2",
+          "hinhAnh": null
+        }
+      ],
+      "maHeThongRap": "BHDStar",
+      "tenHeThongRap": "BHD Star Cineplex",
+      "logo": "http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"
+    },
+    {
+      "cumRapChieu": [
+        {
+          "lichChieuPhim": [
+            {
+              "maLichChieu": "45690",
+              "maRap": "557",
+              "tenRap": "Rạp 7",
+              "ngayChieuGioChieu": "2022-05-11T16:30:00",
+              "giaVe": 75000,
+              "thoiLuong": 120
+            },
+            {
+              "maLichChieu": "45691",
+              "maRap": "557",
+              "tenRap": "Rạp 7",
+              "ngayChieuGioChieu": "2022-05-10T16:30:00",
+              "giaVe": 75000,
+              "thoiLuong": 120
+            },
+            {
+              "maLichChieu": "45762",
+              "maRap": "556",
+              "tenRap": "Rạp 6",
+              "ngayChieuGioChieu": "2022-05-16T21:30:00",
+              "giaVe": 75000,
+              "thoiLuong": 120
+            }
+          ],
+          "maCumRap": "cgv-ct-plaza",
+          "tenCumRap": "CGV - CT Plaza",
+          "hinhAnh": null
+        }
+      ],
+      "maHeThongRap": "CGV",
+      "tenHeThongRap": "cgv",
+      "logo": "http://movie0706.cybersoft.edu.vn/hinhanh/cgv.png"
+    }
+  ],
+  "maPhim": 10531,
+  "tenPhim": "Nghề Siêu dễ",
+  "biDanh": "nghe-sieu-de",
+  "trailer": "https://www.youtube.com/watch?v=1anBxcsV5b8",
+  "hinhAnh": "http://movie0706.cybersoft.edu.vn/hinhanh/nghe-sieu-de_gp09.jpg",
+  "moTa": "Ông Thái là một cảnh sát về hưu nhưng không chịu an phận thủ thường, hàng ngày vẫn đi tìm bắt tội phạm vặt trong xóm cho đỡ nhớ nghề. Một ngày kia, Hoàng - tên trùm ma túy mới ra tù bỗng dưng chuyển đến xóm ông và mở một văn phòng bất động sản. Nghi ngờ đây là nơi làm ăn phi pháp, ông Thái quyết định âm thầm điều tra. Ông mua lại tiệm cơm tấm đối diện trụ sở của Hoàng để làm nơi theo dõi, đồng thời thu nạp Thu - Phú - Vinh - Mèo, đám thanh niên “bất hảo” trong xóm về quán hỗ trợ buôn bán để rảnh tay \"phá án\". Trớ trêu thay, tiệm cơm bất ngờ nổi tiếng và ăn nên làm ra, khiến cho \"chuyên án đặc biệt\" của ông đứng trước nguy cơ đổ bể.",
+  "maNhom": "GP09",
+  "ngayKhoiChieu": "2022-05-11T00:00:00",
+  "danhGia": 10
+}
