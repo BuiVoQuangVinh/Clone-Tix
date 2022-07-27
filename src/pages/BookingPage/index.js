@@ -77,10 +77,9 @@ export default function BookingPage() {
 
   if (!user) {
     return (
-      <Navigate to='/' />
+      <Navigate to='/login' />
     )
   }
-
 
   const handleOnClick = () => {
     const { maLichChieu } = movieTicket?.thongTinPhim

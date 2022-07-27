@@ -10,7 +10,6 @@ import {
     ShowTimesContainer,
     ShowTimesNav,
     ShowTimesLi,
-    ShowTimesContent,
 
 } from './ShowTimes.styled'
 
@@ -36,7 +35,7 @@ export default function ShowTimes(props) {
     // }, [])
 
     const movieList = props.movieList
-    
+
     // Hien thi dang chieu hay sap chieu
     const [active, setActive] = useState(0)
 
@@ -58,7 +57,7 @@ export default function ShowTimes(props) {
         </Prev>
     );
 
-      // custom NextArrow
+    // custom NextArrow
     const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
         <Next
             {...props}
@@ -85,7 +84,7 @@ export default function ShowTimes(props) {
         nextArrow: <SlickArrowRight />,
         prevArrow: <SlickArrowLeft />,
     };
-    return ( 
+    return (
         <ShowTimesStyled>
             <ShowTimesContainer>
                 <ShowTimesNav>
@@ -96,7 +95,8 @@ export default function ShowTimes(props) {
                         onClick={() => setActive(1)}
                     >Sắp chiếu</ShowTimesLi>
                 </ShowTimesNav>
-                <ShowTimesContent active={active === 0 ? 'active' : ''} >
+
+                {active === 0 ?
                     <SliderStyled {...settings}>
 
                         {movieList?.map((movie) => {
@@ -106,10 +106,7 @@ export default function ShowTimes(props) {
                         })}
 
                     </SliderStyled>
-
-                </ShowTimesContent>
-                <ShowTimesContent active={active === 1 ? 'active' : ''} >
-            
+                    :
                     <SliderStyled {...settings}>
                         {movieList?.map((movie) => {
                             return (
@@ -118,7 +115,13 @@ export default function ShowTimes(props) {
                         })}
 
                     </SliderStyled>
-                </ShowTimesContent>
+                }
+
+
+                {/* <ShowTimesContent active={active === 1 ? 'active' : ''} >
+
+
+                </ShowTimesContent> */}
             </ShowTimesContainer>
         </ShowTimesStyled>
     )

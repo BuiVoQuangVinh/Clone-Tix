@@ -82,9 +82,3 @@ export const ShowTimesLi = styled.li`
     }
 
 `
-
-export const ShowTimesContent = styled.div`
-    display: ${props=>props.active === 'active'?'block':'none'} ;
-   
-    
-`

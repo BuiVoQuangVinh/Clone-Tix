@@ -312,3 +312,30 @@ export const MovieContentTitle = styled.h3`
 export const MovieContentParagraph = styled.p`
     text-align: justify;
 `
+
+export const NoHaveTicket = styled.div`
+    flex:1 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#D1ECF1 ;
+
+`
+
+export const NoHaveTicketText = styled.h3`
+    padding-bottom:16px ;
+
+`
+
+export const NoHaveTicketButton = styled.button`
+    border:none ;
+    outline:none ;
+    background-color:#FB4226 ;
+    color:#FFFFFF ;
+    font-size:14px ;
+    padding:12px 6px ;
+    border-radius:6px ;
+    font-weight:600 ;
+    cursor:pointer ;
+`

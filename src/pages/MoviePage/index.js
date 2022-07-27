@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams,useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -46,6 +46,9 @@ import {
   ContentInfo,
   MovieContentTitle,
   MovieContentParagraph,
+  NoHaveTicket,
+  NoHaveTicketButton,
+  NoHaveTicketText,
 } from './MoviePage.styled'
 
 export default function MoviePage() {
@@ -54,7 +57,7 @@ export default function MoviePage() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getMovieInfo(param.id))
-  }, [dispatch,param.id])
+  }, [dispatch, param.id])
 
   const { movie } = useSelector((state) => state.movieInfoReducer)
 
@@ -69,11 +72,10 @@ export default function MoviePage() {
   const formatTime = (item) => {
     return item?.slice(11, 16)
   }
-
+  const navigate=  useNavigate()
   const [activeNav, setActiveNav] = useState(0);
   const [activeTheater, setActiveTheater] = useState(0);
 
-  console.log(movie)
 
   return (
     <MoviePageStyled>
@@ -124,7 +126,6 @@ export default function MoviePage() {
       </MovieCarousel>
       <MovieShowTime>
         <MovieShowTimeNav>
-
           <MovieShowTimeNavItem
             active={activeNav === 0 ? "true" : ""}
             onClick={() => setActiveNav(0)}
@@ -140,55 +141,72 @@ export default function MoviePage() {
         </MovieShowTimeNav>
 
         <TabContent active={activeNav === 0 ? "block" : ""}>
-          <Theaters>
-            {movie?.heThongRapChieu.map((theater, index) => {
-              return (
-                <Theater
-                  key={theater.maHeThongRap}
-                  action={index === activeTheater ? "true" : ""}
-                  onClick={() => setActiveTheater(index)}
-                >
-                  <Logo>
-                    <LogoItem src={theater?.logo} alt='TheaterLogo' />
-                  </Logo>
-                  <TheaterId>{theater?.tenHeThongRap}</TheaterId>
-                </Theater>
-              )
-            })}
-          </Theaters>
 
-          <TheaterShowTime>
-            {movie?.heThongRapChieu[activeTheater]?.cumRapChieu.map((theater) => {
-              return (
-                <TheaterName
-                  key={theater?.maCumRap}
+          {movie?.heThongRapChieu.length ?
+            <>
+              <Theaters>
 
-                >
-                  <TheaterNameItem>
-                    {theater.tenCumRap}
-                  </TheaterNameItem>
-                  {theater.lichChieuPhim.map((time) => {
-                    return (
-                      <ThearTimeShow
-                        to={`/booking/${time.maLichChieu}`}
-                        key={time.maLichChieu}
-                      >
-                        <ThearTimeShowItem>
-                          Ngày chiếu: {formatDay(time?.ngayChieuGioChieu)}
-                        </ThearTimeShowItem>
-                        <br />
-                        <ThearTimeShowItem>
-                          Giờ chiếu: {formatTime(time?.ngayChieuGioChieu)}
-                        </ThearTimeShowItem>
-                      </ThearTimeShow>
-                    )
-                  })}
-                </TheaterName>
-              )
-            })}
+                {movie?.heThongRapChieu.map((theater, index) => {
+                  return (
+                    <Theater
+                      key={theater.maHeThongRap}
+                      action={index === activeTheater ? "true" : ""}
+                      onClick={() => setActiveTheater(index)}
+                    >
+                      <Logo>
+                        <LogoItem src={theater?.logo} alt='TheaterLogo' />
+                      </Logo>
+                      <TheaterId>{theater?.tenHeThongRap}</TheaterId>
+                    </Theater>
+                  )
+                })}
+              </Theaters>
+              <TheaterShowTime>
+                {movie?.heThongRapChieu[activeTheater]?.cumRapChieu.map((theater) => {
+                  return (
+                    <TheaterName
+                      key={theater?.maCumRap}
+
+                    >
+                      <TheaterNameItem>
+                        {theater.tenCumRap}
+                      </TheaterNameItem>
+                      {theater.lichChieuPhim.map((time) => {
+                        return (
+                          <ThearTimeShow
+                            to={`/booking/${time.maLichChieu}`}
+                            key={time.maLichChieu}
+                          >
+                            <ThearTimeShowItem>
+                              Ngày chiếu: {formatDay(time?.ngayChieuGioChieu)}
+                            </ThearTimeShowItem>
+                            <br />
+                            <ThearTimeShowItem>
+                              Giờ chiếu: {formatTime(time?.ngayChieuGioChieu)}
+                            </ThearTimeShowItem>
+                          </ThearTimeShow>
+                        )
+                      })}
+                    </TheaterName>
+                  )
+                })}
 
 
-          </TheaterShowTime>
+              </TheaterShowTime>
+            </>
+            :
+            <NoHaveTicket>
+              <NoHaveTicketText>
+                Phim hiện tại chưa có lịch chiếu!
+              </NoHaveTicketText>
+              <NoHaveTicketButton
+                 
+                onClick={()=>navigate('/')}
+              >
+                Chọn phim khác
+              </NoHaveTicketButton>
+            </NoHaveTicket>}
+
         </TabContent>
 
         <TabContent active={activeNav === 1 ? "block" : ""}>
